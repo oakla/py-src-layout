@@ -1,6 +1,10 @@
 # $package_name
 A template for the src-layout of a Python project.
 
+## Github Settings
+### Pre-receive hooks
+- Reject ipynb output cells
+
 ## src-layout
 The containg folder of this readme is a template for the 'src-layout', a popular layout for python projects and can be detected by *setuptools* for automatic package discovery. 
 
