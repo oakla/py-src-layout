@@ -13,5 +13,12 @@ if sys.version_info >= (3, 10):
 else: 
     from importlib_resources import files
 
+example_text = files('pkgname.data_files').joinpath('example.txt').read_text()
+print(example_text)
 
+import json
+example_map = json.loads(files('pkgname').joinpath('example2.json').read_text())
+print(f"Hello {example_map['Hello']} from json file")
 
+example_path = files('pkgname').joinpath('another_data_file.html')
+print(example_path)
