@@ -9,7 +9,7 @@ Set "VENV=.venv"
 
 If Not Exist "%VENV%\Scripts\activate.bat" (
     ECHO Creating venv
-    python.exe -m venv %VENV%
+    Call python -m venv %VENV%
 )
 
 If Not Exist "%VENV%\Scripts\activate.bat" (
@@ -20,7 +20,7 @@ If Not Exist "%VENV%\Scripts\activate.bat" (
 ECHO Activating venv
 Call "%VENV%\Scripts\activate.bat"
 ECHO Upgrading pip
-python -m pip install --upgrade pip
+Call python -m pip install --upgrade pip
 
 Pause
 Exit /B 0
