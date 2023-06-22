@@ -25,17 +25,15 @@ FILES_TO_DELETE = [
 
 ]
 
-with open('README.md', 'w') as f:
-    f.write(f'# {package_name}\n')
-
-def rename_top_level_module_folder():
-    os.rename('src/$src-template', package_name)
-
 def clean_pyproject():
     with open('pyproject-uncommented.toml', 'r') as f:
         content = f.read()
     with open('pyproject.toml', 'w') as f:
         f.write(content)
+
+def rename_top_level_module_folder():
+    # rename directory
+    os.rename('src/$src-template', f'src/{package_name}')
 
 def replace_place_holder_name_in_file(file_name, new_string):
     with open(file_name, 'r') as f:
@@ -44,6 +42,9 @@ def replace_place_holder_name_in_file(file_name, new_string):
     with open(file_name, 'w') as f:
         f.write(content)
 
+with open('README.md', 'w') as f:
+    f.write(f'# {package_name}\n')
+    
 clean_pyproject()
 rename_top_level_module_folder()
 
