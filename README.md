@@ -2,8 +2,7 @@
 A template for the src-layout of a Python project. 
 
 ## Usage 
-There is a lot of content in the template for reminder or examples purposes. To clean the template down to a minimal working example, run the following command: 
-```bash 
+There is a lot of content in the template for reminder or examples purposes. To clean the template down to a leaner working example, run the `clean.py` script.
 
 ## Github Settings 
 ### Pre-receive hooks 

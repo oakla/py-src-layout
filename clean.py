@@ -1,6 +1,16 @@
+"""
+- Substitute the package name in the files that have the placeholder name $src-template.
+- Remove comments from pyproject.toml 
+- Delete the files 
+    - setup.cfg
+    - MANIFEST.in
+    - pyproject-uncommented.toml
+    - src/$src-template/data_files/example.txt
+    - src/$src-template/another_data_file.html
+    - src/$src-template/example2.json
+"""
 import os
 from sys import argv
-from unittest.mock import DEFAULT
 
 DEFAULT_PACKAGE_NAME = 'my_package'
 
@@ -22,7 +32,10 @@ FILES_TO_DELETE = [
     fr"src\{package_name}\data_files\example.txt",
     fr"src\{package_name}\another_data_file.html",
     fr"src\{package_name}\example2.json",
+]
 
+DIRS_TO_DELETE = [
+    f'src\\{package_name}\\data_files',
 ]
 
 def clean_pyproject():
@@ -53,6 +66,12 @@ for file_name in FILES_WITH_PACKAGE_NAME:
 
 for file_name in FILES_TO_DELETE:
     os.remove(file_name)
+
+for dir_name in DIRS_TO_DELETE:
+    # Check if dir is empyt
+    dir_contents = os.listdir(dir_name)
+    if not dir_contents:
+        os.rmdir(dir_name)
 
 # delete this file
 os.remove('clean.py')
