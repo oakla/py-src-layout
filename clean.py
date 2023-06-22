@@ -1,7 +1,15 @@
 import os
 from sys import argv
+from unittest.mock import DEFAULT
 
-package_name = argv[1]
+DEFAULT_PACKAGE_NAME = 'my_package'
+
+if len(argv) > 1:
+    package_name = argv[1]
+else:
+    package_name = input('Enter package name: ')
+    if not package_name:
+        package_name = DEFAULT_PACKAGE_NAME
 
 FILES_WITH_PACKAGE_NAME = [
     'pyproject.toml',
@@ -28,7 +36,7 @@ def clean_pyproject():
         content = f.read()
     with open('pyproject.toml', 'w') as f:
         f.write(content)
-        
+
 def replace_place_holder_name_in_file(file_name, new_string):
     with open(file_name, 'r') as f:
         content = f.read()
