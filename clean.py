@@ -19,9 +19,9 @@ FILES_TO_DELETE = [
     'setup.cfg',
     'MANIFEST.in',
     'pyproject-uncommented.toml',
-    r"src\$src-template\data_files\example.txt",
-    r"src\$src-template\another_data_file.html",
-    r"src\$src-template\example2.json",
+    fr"src\{package_name}\data_files\example.txt",
+    fr"src\{package_name}\another_data_file.html",
+    fr"src\{package_name}\example2.json",
 
 ]
 
@@ -44,7 +44,7 @@ def replace_place_holder_name_in_file(file_name, new_string):
 
 with open('README.md', 'w') as f:
     f.write(f'# {package_name}\n')
-    
+
 clean_pyproject()
 rename_top_level_module_folder()
 
