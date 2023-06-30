@@ -22,6 +22,8 @@ Call "%VENV%\Scripts\activate.bat"
 ECHO Upgrading pip 
 Call python -m pip install --upgrade pip 
 
+Call python -m pip install -e .
+
 Pause 
 Exit /B 0 
 

@@ -1,8 +1,30 @@
 # $src-template1 
 A template for the src-layout of a Python project. 
 
-## Usage 
-There is a lot of content in the template for reminder or examples purposes. To clean the template down to a leaner working example, run the `clean.py` script.
+There is a lot of content in the template for reminder or examples purposes.
+
+## Usage
+`clean.py` will remove the excess template content, and replace project-name place holders.
+
+1. Set the name of your project
+```py
+# clean.py
+...
+# content ommitted
+# Set the name of your project here
+DEFAULT_PACKAGE_NAME = 'my_package'
+...
+```
+
+2. Run `clean.py` 
+```sh
+python -m clean.py
+```
+
+3. Run `init_venv.bat` to create a virtual environment and install the project in editable mode.
+```sh
+init_venv.bat
+```
 
 ## Github Settings 
 ### Pre-receive hooks 
