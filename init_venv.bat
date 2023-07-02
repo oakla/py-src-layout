@@ -15,7 +15,7 @@ If Not Exist "%VENV%\Scripts\activate.bat" (
 If Not Exist "%VENV%\Scripts\activate.bat" ( 
     ECHO Failed to create venv 
     Exit /B 1 
-    ) 
+) 
 
 ECHO Activating venv 
 Call "%VENV%\Scripts\activate.bat" 
